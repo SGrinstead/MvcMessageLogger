@@ -2,8 +2,8 @@
 
 ## Iteration 1 - Creating and Viewing Users
 
-#### REPLACE THIS HEADER WITH YOUR ITERATION 1 REQUEST/RESPONSE IMAGE
-#### REPLACE THIS HEADER WITH YOUR ITERATION 1 WIREFRAME
+![Request Response Image](/assets/images/RequestResponse1.png)
+![Users Index Wireframe](/assets/images/UsersIndexWireframe.png)
 
 ## Iteration 2 - "Login" and Create Messages
 
