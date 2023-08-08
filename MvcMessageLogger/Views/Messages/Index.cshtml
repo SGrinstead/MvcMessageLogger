@@ -8,7 +8,7 @@
 	<div class="message">	
 		<h6>@Model.Name</h6>
 		<p>@message.Content</p>
-		<p>@message.CreatedAt.ToString()</p>
+		<p>@message.CreatedAt.ToLocalTime().ToString()</p>
 	</div>
 	<p>-----------------------------------</p>
 }

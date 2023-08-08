@@ -1,0 +1,8 @@
+﻿@model IEnumerable<User>
+
+<h1>Site Statistics</h1>
+
+@foreach(var user in Model.OrderByDescending(u => u.Messages.Count))
+{
+	<p>@user.Name has written @user.Messages.Count messages</p>
+}

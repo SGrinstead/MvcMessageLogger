@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MvcMessageLogger.DataAccess;
 using MvcMessageLogger.Models;
 
@@ -33,6 +34,12 @@ namespace MvcMessageLogger.Controllers
 			_context.SaveChanges();
 
 			return Redirect("/users");
+		}
+
+		public IActionResult Statistics()
+		{
+			var users = _context.Users.Include(u => u.Messages);
+			return View(users);
 		}
 	}
 }
