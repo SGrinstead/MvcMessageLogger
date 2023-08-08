@@ -7,5 +7,5 @@
 
 ## Iteration 2 - "Login" and Create Messages
 
-#### REPLACE THIS HEADER WITH YOUR ITERATION 2 REQUEST/RESPONSE IMAGE
-#### REPLACE THIS HEADER WITH YOUR ITERATION 2 WIREFRAME
+![Request Response Image](/assets/images/RequestResponse2.png)
+![Messages Index Wireframe](/assets/images/MessagesIndexWireframe.png)
