@@ -1,6 +1,7 @@
 ﻿@model User
 
 <h1>@Model.Username's Messages</h1>
+<p>-----------------------------------</p>
 
 @foreach(var message in Model.Messages)
 {
@@ -9,6 +10,7 @@
 		<p>@message.Content</p>
 		<p>@message.CreatedAt.ToString()</p>
 	</div>
+	<p>-----------------------------------</p>
 }
 
 @if(Model.Messages.Count == 0)

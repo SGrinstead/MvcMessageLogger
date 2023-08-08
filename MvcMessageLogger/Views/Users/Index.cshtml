@@ -1,12 +1,17 @@
 ﻿@model IEnumerable<User>
 
 <h1>Users</h1>
+<p>-----------------------------------</p>
 
 @foreach(var user in Model)
 {
 	<div class="user-display">
 		<h3>@user.Username</h3>
 		<p>@user.Name</p>
+		<form method="get" action="/users/@user.Id/messages">
+			<button type="submit">Login</button>
+		</form>
+		<p>-----------------------------------</p>
 	</div>
 }
 
