@@ -4,5 +4,5 @@
 
 @foreach(var user in Model.OrderByDescending(u => u.Messages.Count))
 {
-	<p>@user.Name has written @user.Messages.Count messages</p>
+	<p>@user.Username has written @user.Messages.Count messages</p>
 }
