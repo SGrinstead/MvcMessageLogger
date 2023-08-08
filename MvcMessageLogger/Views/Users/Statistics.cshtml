@@ -14,7 +14,16 @@
 
 <h4>Users Ordered By Number Of Messages</h4>
 
+<ol>
 @foreach(var user in Model.OrderByDescending(u => u.Messages.Count))
 {
-	<p>@user.Username has written @user.Messages.Count messages</p>
+	if (user.Messages.Count == 1)
+	{
+		<li>@user.Username has written @user.Messages.Count message</li>
+	}
+	else
+	{
+		<li>@user.Username has written @user.Messages.Count messages</li>
+	}		
 }
+</ol>
