@@ -39,6 +39,8 @@ namespace MvcMessageLogger.Controllers
 		public IActionResult Statistics()
 		{
 			var users = _context.Users.Include(u => u.Messages);
+			ViewData["HourWithMostMessages"] = StatsHelper.HourWithMostMessages(_context);
+			ViewData["MostCommonWord"] = StatsHelper.MostCommonWord(_context);
 			return View(users);
 		}
 	}
