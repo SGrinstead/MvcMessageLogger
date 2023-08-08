@@ -12,6 +12,11 @@ namespace MvcMessageLogger.Models
         public string Content { get; set; }
         public DateTime CreatedAt { get; set; }
 
+        public Message()
+        {
+
+        }
+
         public Message(string content)
         {
             Content = content;

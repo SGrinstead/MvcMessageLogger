@@ -81,5 +81,28 @@ namespace MvcMessageLoggerTests
 			Assert.Contains("Add a Message", html);
 			Assert.Contains("Create Message", html);
 		}
+
+		[Fact]
+		public async Task Create_AddsMessageToDatabaseAndRedirectsToIndex()
+		{
+			var context = GetDbContext();
+			var client = _factory.CreateClient();
+
+			User user2 = new User("John", "JMoney");
+			context.Users.Add(user2);
+			context.SaveChanges();
+
+			var formData = new Dictionary<string, string>
+			{
+				{ "Content", "Test Message" }
+			};
+
+			var response = await client.PostAsync($"/users/{user2.Id}/messages", new FormUrlEncodedContent(formData));
+			var html = await response.Content.ReadAsStringAsync();
+
+			response.EnsureSuccessStatusCode();
+			Assert.Contains("JMoney's Messages", html);
+			Assert.Contains("Test Message", html);
+		}
 	}
 }
