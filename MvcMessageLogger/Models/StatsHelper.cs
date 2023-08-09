@@ -1,5 +1,6 @@
 ﻿using MvcMessageLogger.DataAccess;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MvcMessageLogger.Models
 {
