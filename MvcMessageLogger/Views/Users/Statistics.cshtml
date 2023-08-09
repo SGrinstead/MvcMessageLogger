@@ -1,0 +1,29 @@
+﻿@model IEnumerable<User>
+@{
+	var hourWithMostMessagesPair = (KeyValuePair<int, int>) ViewData["HourWithMostMessages"];
+	var mostCommonWordPair = (KeyValuePair<string, int>) ViewData["MostCommonWord"];
+}
+
+<h1>Site Statistics</h1>
+
+<h4>Hour With The Most Messages</h4>
+<p>The hour with the most messages is @hourWithMostMessagesPair.Key with @hourWithMostMessagesPair.Value Messages written</p>
+
+<h4>Most Common Word</h4>
+<p>The most commonly used word is @mostCommonWordPair.Key with @mostCommonWordPair.Value uses</p>
+
+<h4>Users Ordered By Number Of Messages</h4>
+
+<ol>
+@foreach(var user in Model.OrderByDescending(u => u.Messages.Count))
+{
+	if (user.Messages.Count == 1)
+	{
+		<li>@user.Username has written @user.Messages.Count message</li>
+	}
+	else
+	{
+		<li>@user.Username has written @user.Messages.Count messages</li>
+	}		
+}
+</ol>
