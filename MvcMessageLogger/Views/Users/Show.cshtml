@@ -13,6 +13,7 @@
 		<h6>@Model.Name</h6>
 		<p>@message.Content</p>
 		<p>@message.CreatedAt.ToLocalTime().ToString()</p>
+		<a href="/users/@Model.Id/messages/edit/@message.Id">Edit Message</a> <span> | </span> <a href="/users/@Model.Id/messages/delete/@message.Id">Delete Message</a>
 	</div>
 	<p>-----------------------------------</p>
 }

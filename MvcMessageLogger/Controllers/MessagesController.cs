@@ -48,7 +48,37 @@ namespace MvcMessageLogger.Controllers
 			user.Messages.Add(message);
 			_context.SaveChanges();
 
-			return Redirect($"/users/{user.Id}/messages");
+			return Redirect($"/users/{user.Id}/details");
+		}
+
+		[Route("/users/{userId:int}/messages/edit/{messageId:int}")]
+		public IActionResult Edit(int userId, int messageId)
+		{
+			var user = _context.Users.Find(userId);
+			ViewData["Message"] = _context.Messages.Find(messageId);
+
+			return View(user);
+		}
+
+		[HttpPost]
+		[Route("/users/{userId:int}/messages/update/{messageId:int}")]
+		public IActionResult Update(int userId, int messageId, Message message)
+		{
+			message.Id = messageId;
+			_context.Messages.Update(message);
+			_context.SaveChanges();
+
+			return Redirect($"/users/{userId}/details");
+		}
+
+		[Route("/users/{userId:int}/messages/delete/{messageId:int}")]
+		public IActionResult Delete(int userId, int messageId)
+		{
+			var message = _context.Messages.Find(messageId);
+			_context.Messages.Remove(message);
+			_context.SaveChanges();
+
+			return Redirect($"/users/{userId}/details");
 		}
 	}
 }
