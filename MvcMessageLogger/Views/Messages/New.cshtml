@@ -1,9 +1,9 @@
 ﻿@model User
 
-<h1>Add a Message</h1>
+<h1 class="text-success">Add a Message</h1>
 
 <form method="post" action="/users/@Model.Id/messages">
-	<label for="content">Message:</label>
-	<input type="text" id="content" name="Content" /><br /><br />
-	<button type="submit">Create Message</button>
+	<label class="form-label" for="content">Message:</label>
+	<textarea class="form-control" id="content" name="Content" rows="3"></textarea><br /><br />
+	<button class="btn btn-success" type="submit">Create Message</button>
 </form>

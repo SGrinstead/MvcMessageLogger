@@ -1,0 +1,12 @@
+﻿@model User
+@{
+	var message = ViewData["Message"] as Message;
+}
+
+<h1 class="text-warning">Edit Message</h1>
+
+<form method="post" action="/users/@Model.Id/messages/update/@message.Id">
+	<label class="form-label" for="content">Message:</label>
+	<input type="text" class="form-control" id="content" name="Content" rows="3" value="@message.Content"></input><br /><br />
+	<button class="btn btn-success" type="submit">Update Message</button>
+</form>

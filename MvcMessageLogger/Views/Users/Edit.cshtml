@@ -1,0 +1,15 @@
+﻿@model User
+
+<h1 class="text-warning">Edit User</h1>
+
+<form method="post" action="/users/update/@Model.Id">
+	<div class="form-group">
+		<label class="form-label" for="name">Name:</label>
+		<input class="form-control" type="text" id="name" name="Name" value="@Model.Name" />
+	</div>
+	<div class="form-group">
+		<label  class="form-label" for="username">Username:</label>
+		<input  class="form-control" type="text" id="username" name="Username" value="@Model.Username" />
+	</div><br />
+	<button class="btn btn-success" type="submit">Update User</button>
+</form>
