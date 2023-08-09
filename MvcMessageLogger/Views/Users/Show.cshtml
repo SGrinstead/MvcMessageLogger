@@ -1,21 +1,21 @@
 ﻿@model User
 
-<h1>@Model.Username's Profile</h1>
-<a href="/users/edit/@Model.Id">Edit User Information</a> <span> | </span> <a href="/users/delete/@Model.Id">Delete User</a>
-<p>-----------------------------------</p>
+<h1 class="text-info">@Model.Username's Profile</h1>
+<a href="/users/edit/@Model.Id">Edit User Information</a> <span> | </span> <a class="text-danger" href="/users/delete/@Model.Id">Delete User</a>
+<p>---------------------------------------------</p>
 
-<h3>@Model.Username's Messages</h3>
-<p>-----------------------------------</p>
+<h3 class="text-info">@Model.Username's Messages</h3>
+<p>---------------------------------------</p>
 
 @foreach (var message in Model.Messages)
 {
 	<div class="message">
-		<h6>@Model.Name</h6>
+		<h6 class="text-info">@Model.Name</h6>
 		<p>@message.Content</p>
-		<p>@message.CreatedAt.ToLocalTime().ToString()</p>
-		<a href="/users/@Model.Id/messages/edit/@message.Id">Edit Message</a> <span> | </span> <a href="/users/@Model.Id/messages/delete/@message.Id">Delete Message</a>
+		<p class="text-light">@message.CreatedAt.ToLocalTime().ToString()</p>
+		<a class="text-success" href="/users/@Model.Id/messages/edit/@message.Id">Edit Message</a> <span> | </span> <a class="text-danger" href="/users/@Model.Id/messages/delete/@message.Id">Delete Message</a>
 	</div>
-	<p>-----------------------------------</p>
+	<p>---------------------------------------</p>
 }
 
 @if (Model.Messages.Count == 0)
@@ -24,5 +24,5 @@
 }
 
 <form method="get" action="/users/@Model.Id/messages/new">
-	<button type="submit">Add a Message</button>
+	<button class="btn btn-success" type="submit">Add a Message</button>
 </form>

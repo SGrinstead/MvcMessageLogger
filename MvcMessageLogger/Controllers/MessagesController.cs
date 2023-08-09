@@ -65,6 +65,7 @@ namespace MvcMessageLogger.Controllers
 		public IActionResult Update(int userId, int messageId, Message message)
 		{
 			message.Id = messageId;
+			message.CreatedAt = DateTime.Now.ToUniversalTime();
 			_context.Messages.Update(message);
 			_context.SaveChanges();
 
