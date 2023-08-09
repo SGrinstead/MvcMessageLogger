@@ -43,5 +43,16 @@ namespace MvcMessageLogger.Controllers
 			ViewData["MostCommonWord"] = StatsHelper.MostCommonWord(_context);
 			return View(users);
 		}
+
+		[Route("/users/{userId:int}/details")]
+		public IActionResult Show(int userId)
+		{
+			var user = _context.Users
+				.Where(u => u.Id == userId)
+				.Include(u => u.Messages)
+				.FirstOrDefault();
+
+			return View(user);
+		}
 	}
 }

@@ -1,0 +1,27 @@
+﻿@model User
+
+<h1>@Model.Username's Profile</h1>
+<a href="/users/edit/@Model.Id">Edit User Information</a> <span> | </span> <a href="/users/delete/@Model.Id">Delete User</a>
+<p>-----------------------------------</p>
+
+<h3>@Model.Username's Messages</h3>
+<p>-----------------------------------</p>
+
+@foreach (var message in Model.Messages)
+{
+	<div class="message">
+		<h6>@Model.Name</h6>
+		<p>@message.Content</p>
+		<p>@message.CreatedAt.ToLocalTime().ToString()</p>
+	</div>
+	<p>-----------------------------------</p>
+}
+
+@if (Model.Messages.Count == 0)
+{
+	<h5>You haven't written any messages yet</h5>
+}
+
+<form method="get" action="/users/@Model.Id/messages/new">
+	<button type="submit">Add a Message</button>
+</form>
