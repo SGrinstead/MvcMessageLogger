@@ -77,7 +77,11 @@ namespace MvcMessageLogger.Controllers
 		[Route("/users/delete/{userId:int}")]
 		public IActionResult Delete(int userId)
 		{
-			var user = _context.Users.Find(userId);
+			var user = _context.Users
+				.Where(u => u.Id == userId)
+				.Include(u => u.Messages)
+				.FirstOrDefault(); 
+
 			_context.Remove(user);
 			_context.SaveChanges();
 
